@@ -1,0 +1,27 @@
+.ant-table-thead>tr>th {
+  padding: 0 !important;
+}
+
+.ant-table-cell {
+  padding: 0 8px !important;
+}
+
+.click-to-add {
+  font-style: italic;
+  font-size: 12px;
+  color: rgb(177, 177, 177);
+}
+
+.click-to-add::before {
+  content: 'Click to add';
+}
+
+.ant-table-filter-column {
+  margin-right: 16px;
+}
+.ant-table-column-title{
+  overflow: hidden
+}
+/* .ant-table-column-sorter {
+  display: none;
+} */

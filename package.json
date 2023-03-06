@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "@monorepo/monorepo",
+  "scripts": {
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "start1": "yarn --cwd ./apps/webapp/ start"
+  },
+  "devDependencies": {
+    "turbo": "^1.5.4",
+    "typescript": "^4.8.3"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
+}

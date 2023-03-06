@@ -1,0 +1,75 @@
+{
+  "name": "@monorepo/webapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/charts": "^1.4.2",
+    "@ant-design/colors": "^6.0.0",
+    "@ant-design/icons": "^4.7.0",
+    "@craco/craco": "^7.0.0-alpha.3",
+    "@monorepo/common": "*",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/lodash": "^4.14.186",
+    "@types/node": "^16.7.13",
+    "@types/numeral": "^2.0.2",
+    "@types/react": "^18.0.0",
+    "@types/react-beautiful-dnd": "^13.1.2",
+    "@types/react-dom": "^18.0.0",
+    "@types/react-resizable": "^3.0.3",
+    "antd": "^4.23.5",
+    "aws-amplify": "^4.3.36",
+    "classnames": "^2.3.2",
+    "craco-babel-loader": "^1.0.3",
+    "craco-less": "^2.0.0",
+    "easy-peasy": "^5.1.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "numeral": "^2.0.6",
+    "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-country-flag": "^3.0.2",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "react-jss": "^10.9.2",
+    "react-resizable": "^3.0.4",
+    "react-router-dom": "^6.4.1",
+    "react-scripts": "5.0.1",
+    "scroll-into-view": "^1.16.2",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
+    "deploy": "yarn build && firebase deploy"
+  },
+  "eslintConfig": {
+    "extends": "@monorepo/eslint-config",
+    "ignorePatterns": [
+      "node_modules",
+      "build"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}

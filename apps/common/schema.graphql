@@ -1,0 +1,385 @@
+﻿type Country {
+	name: String
+	id: String
+	category_id: String
+	logo: String
+	updated_at: String
+	category_name: String
+}
+
+type League {
+	id: String
+	category_id: String
+	country_id: String
+	name: String
+	short_name: String
+	logo: String
+	type: Int
+	cur_seasons_id: String
+	cur_stage_id: String
+	cur_round: Int
+	round_count: Int
+	primary_color: String
+	secondary_color: String
+	updated_at: String
+	category_name: String
+	country_name: String
+}
+
+enum ListType {
+	Clubneed
+	Shortlist
+}
+
+type MergedData {
+	players: [PlayerSeasonStat]
+	teams: [Team]
+	leagues: [League]
+	countries: [Country]
+}
+
+type Mutation {
+	confirm_sign_up(Email: String, confirmation_code: String): Boolean
+	create_offer: String
+	create_shortlist(shortlist_name: String, list_type: ListType!, is_default: Boolean): ShortlistInfo
+	create_row(shortlist_id: String): String
+	update_offer(offer_infos: [OfferInfos]): String
+	update_shortlist(shortlist_id: String, shortlist_name: String): ShortlistInfo
+	update_row(shortlist_id: String, row_id: String, row_datas: [RowData]): Boolean
+	url_shortener(url: String): String
+	set_user_settings(config: String): String
+	share_shortlist(shortlist_id: String, shared_users: [String]): Boolean
+	sign_up(username: String, Email: String, password: String): Boolean
+	stop_share_shortlist(shortlist_id: String, stoped_shared_users: [String]): Boolean
+	delete_shortlist(shortlist_id: String): String
+	delete_row(shortlist_id: String, row_id: String): Boolean
+}
+
+type OfferHistory {
+	offerDate: String
+	offer_id: String
+	team: OfferedTeamData
+	player: OfferedPlayerData
+	transfer_season: String
+	note: String
+}
+
+input OfferInfos {
+	offer_id: String
+	team: OfferedTeamDatas
+	player: OfferedPlayerDatas
+	transfer_season: String
+	note: String
+}
+
+type OfferedPlayerData {
+	name: String
+	player_id: String
+	logo: String
+}
+
+input OfferedPlayerDatas {
+	name: String
+	logo: String
+	player_id: String
+}
+
+type OfferedTeamData {
+	name: String
+	team_id: String
+	logo: String
+}
+
+input OfferedTeamDatas {
+	name: String
+	logo: String
+	team_id: String
+}
+
+type Player {
+	id: String
+	team_id: String
+	name: String
+	short_name: String
+	logo: String
+	national_logo: String
+	birthday: Int
+	age: Int
+	weight: Int
+	height: Int
+	country_id: String
+	nationality: String
+	market_value: Int
+	market_value_currency: String
+	contract_until: Int
+	preferred_foot: Int
+	ability: String
+	characteristics: String
+	updated_at: Int
+	team_name: String
+	team_logo: String
+	league_id: String
+	league_name: String
+	country_name: String
+	position: String
+	positions: String
+	country_logo: String
+	league_logo: String
+	offer_history: [OfferHistory]
+}
+
+type PlayerMatchStat {
+	key_passes: Int
+	saves: Int
+	crosses_accuracy: Int
+	runs_out_succ: Int
+	punches: Int
+	freekick_goals: Int
+	clearances: Int
+	passes_accuracy: Int
+	crosses: Int
+	minutes_played: Int
+	goals: Int
+	long_balls: Int
+	first: Int
+	blocked_shots: Int
+	passes: Int
+	red_cards: Int
+	yellow2red_cards: Int
+	penalty: Int
+	offsides: Int
+	tackles: Int
+	duels_won: Int
+	dribble_succ: Int
+	good_high_claim: Int
+	hit_woodwork: Int
+	runs_out: Int
+	shots: Int
+	rating: Int
+	fastbreak_goals: Int
+	assists: Int
+	dispossessed: Int
+	yellow_cards: Int
+	interceptions: Int
+	long_balls_accuracy: Int
+	fastbreak_shots: Int
+	shots_on_target: Int
+	fastbreaks: Int
+	fouls: Int
+	duels: Int
+	freekicks: Int
+	was_fouled: Int
+	poss_losts: Int
+	dribble: Int
+	team_id: String
+	team_name: String
+	team_short_name: String
+	team_logo: String
+	team_country_logo: String
+	player_id: String
+	player_name: String
+	player_short_name: String
+	player_logo: String
+	player_national_logo: String
+	player_age: Int
+	player_birthday: Int
+	player_weight: Int
+	player_height: Int
+	player_country_id: String
+	player_country_name: String
+	player_country_logo: String
+	player_nationality: String
+	player_market_value: Int
+	player_market_value_currency: String
+	player_contract_until: Int
+	player_preferred_foot: Int
+	player_ability: String
+	player_characteristics: String
+	player_position: String
+	player_positions: String
+	match_id: String
+	match_season_id: String
+	match_home_team_id: String
+	match_away_team_id: String
+	match_league_id: String
+	match_league_name: String
+	match_league_logo: String
+	match_league_short_name: String
+	match_league_primary_color: String
+	match_league_secondary_color: String
+	match_league_round_count: Int
+	season_year: Int
+	season_start_time: Int
+	season_end_time: Int
+	match_home_team_name: String
+	match_home_team_short_name: String
+	match_home_team_logo: String
+	match_home_team_country_id: String
+	match_home_team_country_name: String
+	match_home_team_country_logo: String
+	match_away_team_name: String
+	match_away_team_short_name: String
+	match_away_team_logo: String
+	match_away_team_country_id: String
+	match_away_team_country_name: String
+	match_away_team_country_logo: String
+}
+
+type PlayerSeasonStat {
+	key_passes: Int
+	saves: Int
+	crosses_accuracy: Int
+	runs_out_succ: Int
+	player_name: String
+	player_logo: String
+	player_id: String
+	player_position: String
+	player_nationality: String
+	player_country_id: String
+	crosses: Int
+	minutes_played: Int
+	long_balls: Int
+	red_cards: Int
+	yellow2red_cards: Int
+	team_name: String
+	team_logo: String
+	team_id: String
+	tackles: Int
+	hit_woodwork: Int
+	runs_out: Int
+	rating: Int
+	fastbreak_goals: Int
+	fastbreak_shots: Int
+	yellow_cards: Int
+	long_balls_accuracy: Int
+	shots_on_target: Int
+	updated_at: Int
+	season_id: String
+	fastbreaks: Int
+	freekicks: Int
+	punches: Int
+	freekick_goals: Int
+	clearances: Int
+	passes_accuracy: Int
+	goals: Int
+	first: Int
+	blocked_shots: Int
+	passes: Int
+	offsides: Int
+	penalty: Int
+	duels_won: Int
+	dribble_succ: Int
+	good_high_claim: Int
+	shots: Int
+	assists: Int
+	dispossessed: Int
+	matches: Int
+	interceptions: Int
+	fouls: Int
+	court: Int
+	duels: Int
+	poss_losts: Int
+	was_fouled: Int
+	dribble: Int
+	season_year: String
+	season_start_time: Int
+	season_end_time: Int
+	season_league_id: String
+	season_league_name: String
+	season_league_logo: String
+	season_league_short_name: String
+	season_league_primary_color: String
+	season_league_secondary_color: String
+	season_league_round_count: String
+	player_short_name: String
+	player_national_logo: String
+	player_age: Int
+	player_birthday: Int
+	player_weight: Int
+	player_height: Int
+	player_market_value: Int
+	player_market_value_currency: String
+	player_contract_until: Int
+	player_preferred_foot: Int
+	player_ability: String
+	player_characteristics: String
+	player_positions: String
+	player_team_id: String
+	player_country_name: String
+	player_country_logo: String
+	team_short_name: String
+	team_country_id: String
+	team_country_name: String
+	team_country_logo: String
+	team_league_id: String
+	team_league_name: String
+	team_league_logo: String
+	team_league_short_name: String
+}
+
+type Query {
+	sql(query: String): AWSJSON
+	get_countries: [Country]
+	get_country(country_id: String): Country
+	get_my_shortlists: [ShortlistInfo]
+	get_leagues(league_id: String): [League]
+	get_league(league_id: String): League
+	get_players(team_id: String): [Player]
+	get_player(player_id: String): Player
+	get_player_match_stat(player_id: String): [PlayerMatchStat]
+	get_player_season_stat(player_id: String): [PlayerSeasonStat]
+	get_rows(shortlist_id: String, row_id: String, columns: [String]): [AWSJSON]
+	get_url(key: String): String
+	get_teams(league_id: String!): [Team]
+	get_team(team_id: String): Team
+	get_user_setting: String
+	search(term: String): MergedData
+	search_users(term: String): [String]
+}
+
+input RowData {
+	column: String
+	value: String
+}
+
+type ShortlistInfo {
+	shortlist_id: String
+	shortlist_name: String
+	owner_id: String
+	shared_type: String
+	list_type: ListType!
+	is_default: Boolean
+	shared_users: [String]
+}
+
+type Team {
+	market_value: Int
+	website: String
+	national: Int
+	logo: String
+	total_players: Int
+	name: String
+	updated_at: Int
+	venue_id: String
+	coach_id: String
+	short_name: String
+	foundation_time: Int
+	country_id: String
+	foreign_players: Int
+	country_logo: String
+	market_value_currency: String
+	national_players: Int
+	id: String
+	country_name: String
+	league_id: String
+	league_name: String
+	league_logo: String
+	coach_name: String
+	coach_logo: String
+	offer_history: [OfferHistory]
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+}
