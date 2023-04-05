@@ -16,7 +16,7 @@
     ]
   },
   "dependencies": {
-    "aws-amplify": "^4.3.36",
+    "aws-amplify": "^5.0.24",
     "easy-peasy": "^5.1.0",
     "moment": "^2.29.4",
     "numeral": "^2.0.6",
