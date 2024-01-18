@@ -15,7 +15,7 @@
     "eas-build-post-install": "pnpm run -w build"
   },
   "dependencies": {
-    "expo": "^46.0.0",
+    "expo": "^50.0.0",
     "expo-dev-client": "~1.2.1",
     "expo-status-bar": "~1.4.0",
     "expo-updates": "~0.14.5",
